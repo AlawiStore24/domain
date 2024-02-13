@@ -29,12 +29,12 @@ echo -e ""
 if [ $host -eq 1 ]
 then
   clear
-  echo -e "------>  xxx.alawistore.my.id  <------"
+  echo -e "------>  xxx.${DOMAIN1}  <------"
   echo -e ""
   echo -e "isi xxx dengan subdomain kamu"
   echo -e ""
   read -rp "masukkan subdomain kamu: " -e sub1
-  read -rp "masukkan ip vps kamu: " -e ip1
+  read -rp "masukkan ip vps kamu   : " -e ip1
 
 set -euo pipefail
 IP1=${ip1};
