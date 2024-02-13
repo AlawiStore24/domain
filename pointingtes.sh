@@ -614,21 +614,750 @@ read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
 ./pointingtes.sh
 #domain 8
-el
+elif [ $host -eq 8 ]
+then
+  clear
+DOMAIN8=sshserver.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN8}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN8=${sub1}.${DOMAIN8}
+SUB_DOMAIN08=zoomcares.zoom.us.${sub1}.${DOMAIN8}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN8}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN8}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN8}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN8}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN8}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN08}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN8}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN08}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN08}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN08}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN8}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 9
-el
+elif [ $host -eq 9 ]
+then
+  clear
+DOMAIN9=udpserver.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN9}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN9=${sub1}.${DOMAIN9}
+SUB_DOMAIN09=zoomcares.zoom.us.${sub1}.${DOMAIN9}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN9}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN9}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN9}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN9}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN9}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN09}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN9}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN09}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN09}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN09}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN9}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 10
-el
+elif [ $host -eq 10 ]
+then
+  clear
+DOMAIN10=vmesserver.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN10}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN10=${sub1}.${DOMAIN10}
+SUB_DOMAIN010=zoomcares.zoom.us.${sub1}.${DOMAIN10}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN10}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN10}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN10}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN10}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN10}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN010}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN10}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN010}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN010}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN010}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN10}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 11
-el
+elif [ $host -eq 11 ]
+then
+  clear
+DOMAIN11=vpnbagus.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN11}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN11=${sub1}.${DOMAIN11}
+SUB_DOMAIN011=zoomcares.zoom.us.${sub1}.${DOMAIN11}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN11}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN11}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN11}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN11}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN11}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN011}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN11}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN011}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN011}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN011}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN11}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 12
-el
+elif [ $host -eq 12 ]
+then
+  clear
+DOMAIN12=vpnssh.biz.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN12}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN12=${sub1}.${DOMAIN12}
+SUB_DOMAIN012=zoomcares.zoom.us.${sub1}.${DOMAIN12}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN12}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN12}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN12}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN12}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN12}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN012}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN12}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN012}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN012}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN012}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN12}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 13
-el
+elif [ $host -eq 13 ]
+then
+  clear
+DOMAIN13=vpssantri.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN13}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN13=${sub1}.${DOMAIN13}
+SUB_DOMAIN013=zoomcares.zoom.us.${sub1}.${DOMAIN13}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN13}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN13}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN13}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN13}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN13}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN013}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN13}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN013}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN013}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN013}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN13}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 14
-el
+elif [ $host -eq 14 ]
+then
+  clear
+DOMAIN14=vpsvpn.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN14}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN14=${sub1}.${DOMAIN14}
+SUB_DOMAIN014=zoomcares.zoom.us.${sub1}.${DOMAIN14}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN14}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN14}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN14}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN14}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN14}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN014}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN14}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN014}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN014}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN014}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN14}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 15
-el
+elif [ $host -eq 15 ]
+then
+  clear
+DOMAIN15=wush.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN15}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN15=${sub1}.${DOMAIN15}
+SUB_DOMAIN015=zoomcares.zoom.us.${sub1}.${DOMAIN15}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN15}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN15}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN15}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN15}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN15}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN015}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN15}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN015}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN015}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN015}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN15}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 #domain 16
-el
+elif [ $host -eq 16 ]
+then
+  clear
+DOMAIN16=wussh.my.id
+  echo -e ""
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN16}  $biru<------$NC"
+  echo -e ""
+  read -rp "masukkan subdomain kamu: " -e sub1
+  read -rp "masukkan ip vps kamu   : " -e ip1
+
+SUB_DOMAIN16=${sub1}.${DOMAIN16}
+SUB_DOMAIN016=zoomcares.zoom.us.${sub1}.${DOMAIN16}
+CF_ID=vpsvpsku@gmail.com
+CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
+
+set -euo pipefail
+IP1=${ip1};
+hijau="\e[92;1m"
+echo -e ""
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN16}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN16}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN16}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN16}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN16}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+#zoomcares.zoom.us
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN016}$NC..."
+ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN16}&status=active" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN016}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" | jq -r .result[0].id)
+if [[ "${#RECORD}" -le 10 ]]; then
+RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN016}'","content":"'${IP1}'","ttl":120,"proxied":false}' | jq -r .result.id)
+fi
+RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
+-H "X-Auth-Email: ${CF_ID}" \
+-H "X-Auth-Key: ${CF_KEY}" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"'${SUB_DOMAIN016}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e ""
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN16}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
+echo -e ""
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
+echo ""
+./pointingtes.sh
 fi
