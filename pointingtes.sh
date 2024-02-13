@@ -101,7 +101,7 @@ echo -e ""
 echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN1}$NC"
 echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
-read -rp "Ketik [ ${biru}enter$NC ] untuk kembali... "
+read -rp "$( echo -e "Ketik [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
 ./pointingtes.sh
 fi
