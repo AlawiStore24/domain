@@ -14,12 +14,23 @@ echo -e "$biru└─────────────────────
 echo -e "$biru┌──────────────────────────────────────────┐$NC"
 echo -e "$biru│$NC [${biru}01$NC]$NC alawistore.my.id                    $NC$biru│$NC"
 echo -e "$biru│$NC [${biru}02$NC]$NC alawistore.biz.id                   $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}03$NC]$NC sshserver.my.id                     $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}04$NC]$NC serverssh.biz.id                    $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}05$NC]$NC vpnssh.biz.id                       $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}03$NC]$NC alawivpn.cloud                      $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}04$NC]$NC cakdayat.my.id                      $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}05$NC]$NC petapan.my.id                       $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}06$NC]$NC sayasantri.my.id                    $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}07$NC]$NC serverssh.biz.id                    $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}08$NC]$NC sshserver.my.id                     $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}09$NC]$NC udpserver.my.id                     $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}10$NC]$NC vmesserver.my.id                    $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}11$NC]$NC vpnbagus.my.id                      $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}12$NC]$NC vpnssh.biz.id                       $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}13$NC]$NC vpssantri.my.id                     $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}14$NC]$NC vpsvpn.my.id                        $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}15$NC]$NC wush.my.id                          $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}16$NC]$NC wussh.my.id                         $NC$biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
-read -rp "pilih salah satu (1-5): " host
+read -rp "pilih salah satu (1-16): " host
 echo -e ""
 #domain 1
 if [ $host -eq 1 ]
