@@ -2,6 +2,9 @@
 #pilihlah salah satu server di bawah ini
 #domain 1
 clear
+biru="\033[36m"
+merah="\033[31m"
+hijau="\e[92;1m"
 echo -e ""
 echo -e "┌──────────────────────────────────────────┐"
 echo -e "│ [01] alawistore.my.id                    │"
