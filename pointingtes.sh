@@ -44,7 +44,7 @@ set -euo pipefail
 IP1=${ip1};
 hijau="\e[92;1m"
 echo -e ""
-echo -e "Sedang pointing ${SUB_DOMAIN1}..."
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN1}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -67,7 +67,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 --data '{"type":"A","name":"'${SUB_DOMAIN1}'","content":"'${IP1}'","ttl":120,"proxied":false}')
 echo -e "${hijau}Sukses!$NC"
 #zoomcares.zoom.us
-echo -e "Sedang pointing ${SUB_DOMAIN01}..."
+echo -e "Sedang pointing ${biru}${SUB_DOMAIN01}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -101,7 +101,7 @@ echo -e ""
 echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN1}$NC"
 echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
-read -rp "$( echo -e "Ketik [ ${biru}enter$NC ] untuk kembali... ") "
+read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
 ./pointingtes.sh
 fi
