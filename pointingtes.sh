@@ -12,11 +12,11 @@ echo -e "$biru┌─────────────────────
 echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e "$biru┌──────────────────────────────────────────┐$NC"
-echo -e "$biru│$NC [${biru}01$NC]$NC • alawistore.my.id                  $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}02$NC]$NC • alawistore.biz.id                 $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}03$NC]$NC • sshserver.my.id                   $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}04$NC]$NC • serverssh.biz.id                  $NC$biru│$NC"
-echo -e "$biru│$NC [${biru}05$NC]$NC • vpnssh.biz.id                     $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}01$NC]$NC alawistore.my.id                    $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}02$NC]$NC alawistore.biz.id                   $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}03$NC]$NC sshserver.my.id                     $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}04$NC]$NC serverssh.biz.id                    $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}05$NC]$NC vpnssh.biz.id                       $NC$biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
 read -rp "pilih salah satu (1-5): " host
@@ -66,7 +66,6 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN1}'","content":"'${IP1}'","ttl":120,"proxied":false}')
 echo -e "${hijau}Sukses!$NC"
-echo -e ""
 #zoomcares.zoom.us
 echo -e "Sedang pointing ${SUB_DOMAIN01}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
@@ -99,10 +98,10 @@ echo -e "$biru┌─────────────────────
 echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
-echo -e "${hijau}Berhasil$NC pointing ${biru}${SUB_DOMAIN1}"
-echo -e "        Untuk ip ${biru}${IP1}"
+echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN1}$NC"
+echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
-read -p "Ketik [ enter ] untuk kembali... "
+read -p "Ketik [ ${biru}enter$NC ] untuk kembali... "
 echo ""
 ./pointingtes.sh
 fi
