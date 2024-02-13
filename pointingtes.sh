@@ -43,7 +43,8 @@ CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
 set -euo pipefail
 IP1=${ip1};
 hijau="\e[92;1m"
-echo "Sedang pointing ${SUB_DOMAIN1}..."
+echo -e ""
+echo -e "Sedang pointing ${SUB_DOMAIN1}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -64,10 +65,10 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "X-Auth-Key: ${CF_KEY}" \
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN1}'","content":"'${IP1}'","ttl":120,"proxied":false}')
-echo "${hijau}Sukses!$NC"
-echo ""
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
 #zoomcares.zoom.us
-echo "Sedang pointing ${SUB_DOMAIN01}..."
+echo -e "Sedang pointing ${SUB_DOMAIN01}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -88,8 +89,9 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "X-Auth-Key: ${CF_KEY}" \
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN01}'","content":"'${IP1}'","ttl":120,"proxied":false}')
-echo "${hijau}Sukses!$NC"
-echo ""
+echo -e ""
+echo -e "${hijau}Sukses!$NC"
+echo -e ""
 sleep 3
 clear
 #pemberitahuan selesai
@@ -99,7 +101,7 @@ echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
 echo -e "${hijau}Berhasil$NC pointing ${SUB_DOMAIN1}"
-echo -e "untuk ip ${IP1}"
+echo -e "        Untuk ip ${IP1}"
 echo -e ""
 read -p "Ketik [ enter ] untuk kembali... "
 echo ""
