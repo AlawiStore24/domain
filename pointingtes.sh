@@ -61,7 +61,7 @@ echo -e "│   POINTING DOMAIN KE CLOUDFLARE SELESAI  │"
 echo -e "└──────────────────────────────────────────┘"
 echo -e "Pointing ${SUB_DOMAIN1} selesai..."
 echo ""
-read -p "Press [ Enter] For Starting Installation"
+read -p "Ketik apapun untuk kembali... "
 echo ""
 ./pointingtes.sh
 #subdomain 2
@@ -112,7 +112,7 @@ echo -e "│   POINTING DOMAIN KE CLOUDFLARE SELESAI  │"
 echo -e "└──────────────────────────────────────────┘"
 echo -e "Pointing ${SUB_DOMAIN2} selesai..."
 echo ""
-read -p "Press [ Enter] For Starting Installation"
+read -p "Ketik apapun untuk kembali... "
 echo ""
 ./pointingtes.sh
 fi
