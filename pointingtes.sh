@@ -2,17 +2,22 @@
 #pilihlah salah satu server di bawah ini
 #domain 1
 clear
-biru="\033[36m"
+bir="\e[46"
+biru="\e[36m"
 merah="\033[31m"
 hijau="\e[92;1m"
+NC='\e[0m'
 echo -e ""
-echo -e "┌──────────────────────────────────────────┐"
-echo -e "│ [01] alawistore.my.id                    │"
-echo -e "│ [02] alawistore.biz.id                   │"
-echo -e "│ [03] sshserver.my.id                     │"
-echo -e "│ [04] serverssh.biz.id                    │"
-echo -e "│ [05] vpnssh.biz.id                       │"
-echo -e "└──────────────────────────────────────────┘"
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│$NC [${biru}01$NC]$NC • alawistore.my.id                  $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}02$NC]$NC • alawistore.biz.id                 $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}03$NC]$NC • sshserver.my.id                   $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}04$NC]$NC • serverssh.biz.id                  $NC$biru│$NC"
+echo -e "$biru│$NC [${biru}05$NC]$NC • vpnssh.biz.id                     $NC$biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
 read -rp "pilih salah satu (1-5): " host
 echo -e ""
