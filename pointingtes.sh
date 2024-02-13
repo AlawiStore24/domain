@@ -104,17 +104,34 @@ echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
 ./pointingtes.sh
-fi
 #domain 2
+el
 #domain 3
+el
 #domain 4
+el
 #domain 5
+el
 #domain 6
+el
 #domain 7
+el
 #domain 8
+el
 #domain 9
+el
 #domain 10
+el
 #domain 11
+el
 #domain 12
+el
 #domain 13
+el
 #domain 14
+el
+#domain 15
+el
+#domain 16
+el
+fi
