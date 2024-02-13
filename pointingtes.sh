@@ -42,7 +42,7 @@ CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
 
 set -euo pipefail
 IP1=${ip1};
-
+hijau="\e[92;1m"
 echo "Sedang pointing ${SUB_DOMAIN1}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
@@ -97,8 +97,10 @@ echo -e ""
 echo -e "$biru┌──────────────────────────────────────────┐$NC"
 echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
-echo -e "Berhasil pointing ${SUB_DOMAIN1} untuk ip ${IP1}"
-echo ""
+echo -e ""
+echo -e "${hijau}Berhasil$NC pointing ${SUB_DOMAIN1}"
+echo -e "untuk ip ${IP1}"
+echo -e ""
 read -p "Ketik [ enter ] untuk kembali... "
 echo ""
 ./pointingtes.sh
