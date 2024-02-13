@@ -1,6 +1,6 @@
 #!/bin/bash
 #pilihlah salah satu server di bawah ini
-#domain 1
+#kumpulan domain
 clear
 bir="\e[46"
 biru="\e[36m"
@@ -21,7 +21,7 @@ echo -e "$biru└─────────────────────
 echo -e ""
 read -rp "pilih salah satu (1-5): " host
 echo -e ""
-
+#domain 1
 if [ $host -eq 1 ]
 then
   clear
@@ -105,5 +105,16 @@ read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
 ./pointingtes.sh
 fi
-#subdomain 2
-
+#domain 2
+#domain 3
+#domain 4
+#domain 5
+#domain 6
+#domain 7
+#domain 8
+#domain 9
+#domain 10
+#domain 11
+#domain 12
+#domain 13
+#domain 14
