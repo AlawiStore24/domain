@@ -26,9 +26,11 @@ if [ $host -eq 1 ]
 then
   clear
 DOMAIN1=alawistore.my.id
-  echo -e "------>  xxx.${DOMAIN1}  <------"
   echo -e ""
-  echo -e "isi xxx dengan subdomain kamu"
+  echo -e "$biru┌──────────────────────────────────────────┐$NC"
+  echo -e "$biru│      ${hijau} POINTING DOMAIN BY ALAWI VPN       $biru│$NC"
+  echo -e "$biru└──────────────────────────────────────────┘$NC"
+  echo -e "$biru------>$NC  ${hijau}xxx.${DOMAIN1}  $biru<------$NC"
   echo -e ""
   read -rp "masukkan subdomain kamu: " -e sub1
   read -rp "masukkan ip vps kamu   : " -e ip1
@@ -41,7 +43,7 @@ CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
 set -euo pipefail
 IP1=${ip1};
 
-echo "Updating DNS for ${SUB_DOMAIN1}..."
+echo "Sedang pointing ${SUB_DOMAIN1}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -62,7 +64,10 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "X-Auth-Key: ${CF_KEY}" \
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN1}'","content":"'${IP1}'","ttl":120,"proxied":false}')
+echo "${hijau}Sukses!$NC"
+echo ""
 #zoomcares.zoom.us
+echo "Sedang pointing ${SUB_DOMAIN01}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -83,66 +88,20 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "X-Auth-Key: ${CF_KEY}" \
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN01}'","content":"'${IP1}'","ttl":120,"proxied":false}')
-clear
-
-echo -e ""
-echo -e "┌──────────────────────────────────────────┐"
-echo -e "│   POINTING DOMAIN KE CLOUDFLARE SELESAI  │"
-echo -e "└──────────────────────────────────────────┘"
-echo -e "Pointing ${SUB_DOMAIN1} selesai..."
+echo "${hijau}Sukses!$NC"
 echo ""
-read -p "Ketik apapun untuk kembali... "
+sleep 3
+clear
+#pemberitahuan selesai
+echo -e ""
+echo -e "$biru┌──────────────────────────────────────────┐$NC"
+echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru└──────────────────────────────────────────┘$NC"
+echo -e "Berhasil pointing ${SUB_DOMAIN1} untuk ip ${IP1}"
+echo ""
+read -p "Ketik [ enter ] untuk kembali... "
 echo ""
 ./pointingtes.sh
+fi
 #subdomain 2
-elif [ $host -eq 2 ]
-then
-  clear
-DOMAIN2=alawistore.biz.id
-  echo -e "------>  xxx.${DOMAIN2}  <------"
-  echo -e ""
-  echo -e "isi xxx dengan subdomain kamu"
-  echo -e ""
-  read -rp "masukkan subdomain kamu: " -e sub2
-  read -rp "masukkan ip vps kamu   : " -e ip2
 
-SUB_DOMAIN2=${sub2}.${DOMAIN2}
-CF_ID=vpsvpsku@gmail.com
-CF_KEY=cb9b858e75a955df979cf4bff74839df1943d
-
-set -euo pipefail
-IP2=${ip2};
-
-echo "Updating DNS for ${SUB_DOMAIN2}..."
-ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN2}&status=active" \
--H "X-Auth-Email: ${CF_ID}" \
--H "X-Auth-Key: ${CF_KEY}" \
--H "Content-Type: application/json" | jq -r .result[0].id)
-RECORD=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records?name=${SUB_DOMAIN2}" \
--H "X-Auth-Email: ${CF_ID}" \
--H "X-Auth-Key: ${CF_KEY}" \
--H "Content-Type: application/json" | jq -r .result[0].id)
-if [[ "${#RECORD}" -le 10 ]]; then
-RECORD=$(curl -sLX POST "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records" \
--H "X-Auth-Email: ${CF_ID}" \
--H "X-Auth-Key: ${CF_KEY}" \
--H "Content-Type: application/json" \
---data '{"type":"A","name":"'${SUB_DOMAIN2}'","content":"'${IP2}'","ttl":120,"proxied":false}' | jq -r .result.id)
-fi
-RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
--H "X-Auth-Email: ${CF_ID}" \
--H "X-Auth-Key: ${CF_KEY}" \
--H "Content-Type: application/json" \
---data '{"type":"A","name":"'${SUB_DOMAIN2}'","content":"'${IP2}'","ttl":120,"proxied":false}')
-clear
-
-echo -e ""
-echo -e "┌──────────────────────────────────────────┐"
-echo -e "│   POINTING DOMAIN KE CLOUDFLARE SELESAI  │"
-echo -e "└──────────────────────────────────────────┘"
-echo -e "Pointing ${SUB_DOMAIN2} selesai..."
-echo ""
-read -p "Ketik apapun untuk kembali... "
-echo ""
-./pointingtes.sh
-fi
