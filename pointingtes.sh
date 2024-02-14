@@ -2,7 +2,6 @@
 #pilihlah salah satu server di bawah ini
 #kumpulan domain
 clear
-bir="\e[46"
 biru="\e[36m"
 merah="\033[31m"
 hijau="\e[92;1m"
@@ -114,7 +113,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 2
 elif [ $host -eq 2 ]
 then
@@ -197,7 +196,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 3
 elif [ $host -eq 3 ]
 then
@@ -280,7 +279,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 4
 elif [ $host -eq 4 ]
 then
@@ -363,7 +362,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 5
 elif [ $host -eq 5 ]
 then
@@ -446,7 +445,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 6
 elif [ $host -eq 6 ]
 then
@@ -529,7 +528,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 7
 elif [ $host -eq 7 ]
 then
@@ -612,7 +611,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 8
 elif [ $host -eq 8 ]
 then
@@ -695,7 +694,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 9
 elif [ $host -eq 9 ]
 then
@@ -778,7 +777,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 10
 elif [ $host -eq 10 ]
 then
@@ -861,7 +860,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 11
 elif [ $host -eq 11 ]
 then
@@ -944,7 +943,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 12
 elif [ $host -eq 12 ]
 then
@@ -1027,7 +1026,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 13
 elif [ $host -eq 13 ]
 then
@@ -1110,7 +1109,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 14
 elif [ $host -eq 14 ]
 then
@@ -1193,7 +1192,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 15
 elif [ $host -eq 15 ]
 then
@@ -1276,7 +1275,7 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 #domain 16
 elif [ $host -eq 16 ]
 then
@@ -1359,5 +1358,5 @@ echo -e "         Untuk ip ${biru}${IP1}$NC"
 echo -e ""
 read -rp "$( echo -e "Tekan [ ${biru}enter$NC ] untuk kembali... ") "
 echo ""
-./pointingtes.sh
+pointing
 fi
