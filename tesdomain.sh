@@ -119,4 +119,4 @@ pointing
 elif [ $host -eq * ]
 then
   clear
-  pointing
+  ./tesdomain.sh
