@@ -7,7 +7,7 @@ mv domain.sh /usr/bin/pointing
 clear
 #izin aksesnya
 cd /usr/bin/
-chmod +x domain.sh
+chmod +x pointing
 clear
 #kembali ke root
 cd
