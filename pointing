@@ -1,0 +1,18 @@
+#!/bin/bash
+#wget dulu ya guys hehe
+wget https://raw.githubusercontent.com/AlawiStore24/domain/main/domain.sh
+clear
+#pindah ke /usr/bin/
+mv domain.sh /usr/bin/pointing
+clear
+#izin aksesnya
+cd /usr/bin/
+chmod +x domain.sh
+clear
+#kembali ke root
+cd
+rm -rf pointing
+clear
+#tes pointing
+pointing
+clear
