@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #warna-warna
-biru="\e[36m"
-hijau="\e[92;1m"
-green='\e[32m'
-red='\e[38;5;208m'
+biru="\033[1;36m" 
+hijau="\e[92;1m" 
+green='\e[32m' 
+red='\e[38;5;208m' 
 NC='\e[0m'
 clear
 
