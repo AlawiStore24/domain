@@ -3,11 +3,11 @@
 wget https://raw.githubusercontent.com/AlawiStore24/domain/main/domain.sh
 clear
 #pindah ke /usr/bin/
-mv domain.sh /usr/bin/pointing
+mv domain.sh /usr/bin/alawi
 clear
 #izin aksesnya
 cd /usr/bin/
-chmod +x pointing
+chmod +x alawi
 clear
 #kembali ke root
 cd
